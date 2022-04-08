@@ -1,18 +1,22 @@
-import { Header } from './components/Header';
-import { Photo } from './components/Photo';
+import { useState } from "react";
 
 const App = () => {
 
+  const [n, setN] = useState(0);
+
+  const handleMinus = () => {
+    setN( n - 1)
+  }
+
+  const handleMore = () => {
+    setN(n + 1)
+  }
+
   return (
     <div>
-      <Header title="Essse é um props"/>
-      <Header title='Outro texto'/>
-
-      Olá Mundo
-
-      <Photo legend="Google">
-        <img src="https://www.google.com.br/google.jpg" alt=""/>
-      </Photo>
+      <button onClick={handleMinus}>-</button>
+      <div>{n}</div>
+      <button onClick={handleMore}>+</button>
     </div>
   );
 }
