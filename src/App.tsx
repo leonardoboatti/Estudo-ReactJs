@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { isTemplateTail } from "typescript";
 import { Botao } from "./components/Botao";
+import { Pessoa } from "./components/Pessoa";
 
 const App = () => {
   const [name, setName] = useState('');
@@ -14,8 +16,15 @@ const App = () => {
     alert("Frase do APP: " + txt);
   }
 
+  let list = [
+    {name: 'Leo', age: 23},
+    {name: 'Leo', age: 23},
+    {name: 'Leo', age: 23}
+  ];
+
+
   return (
-    <div>
+    /*<div>
       Nome:
       <input type='text' value={name} onChange={handleInput}/>
       <hr/>
@@ -24,6 +33,15 @@ const App = () => {
       <div>
         <Botao text={textoBtn} clickFn={botaoEventAct}/>
       </div>
+
+    </div>*/
+    <div>
+      <h2>lista de presença</h2>
+      <ul>
+        {list.map((item, index)=>(
+          <Pessoa key={index} data={item}/>
+        ))}
+      </ul>
 
     </div>
 
