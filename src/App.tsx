@@ -22,6 +22,16 @@ const App = () => {
     {name: 'Leo', age: 23}
   ];
 
+  const [show, setShow] = useState(false);
+
+  const handleClick = () =>{
+    /*if(show){
+      setShow(false);
+    } else {
+      setShow(true);
+    }*///substituindo esse bloco por esse comando
+    setShow(!show);
+  }
 
   return (
     /*<div>
@@ -35,13 +45,23 @@ const App = () => {
       </div>
 
     </div>*/
-    <div>
+    /*<div>
       <h2>lista de presença</h2>
       <ul>
         {list.map((item, index)=>(
           <Pessoa key={index} data={item}/>
         ))}
       </ul>
+
+    </div>*/
+    <div>
+      <button onClick={handleClick}>{show ? 'Ocultar' : 'Mostrar'}</button>
+
+      {show  && 
+        <div>
+          Palmeiras nao tem mundial
+        </div>
+      }
 
     </div>
 
